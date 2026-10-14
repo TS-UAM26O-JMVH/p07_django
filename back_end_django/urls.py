@@ -9,7 +9,7 @@ from drf_yasg import openapi
 schema_view = get_schema_view(
     openapi.Info(
         title="APIrest",
-        default_version="v3",
+        default_version="v4",
         description="Documentación de la API",
         terms_of_service="https://www.tusitio.com/terms/",
         contact=openapi.Contact(email="soporte@tusitio.com"),
