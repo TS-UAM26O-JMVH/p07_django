@@ -248,3 +248,134 @@ CORS_ALLOW_HEADERS = [
     "x-csrftoken",
     "x-requested-with",
 ]
+
+#Codigo 11 implementado con codigo 13 - p07: Estos Logs tecnicos nos permiten registrar eventos del sistema: peticiones entrantes,
+#  error de base de datos, excepciones no controladas, etc.
+# ─────────────────────────────────────────
+# LOGGING — Logs técnicos
+# ─────────────────────────────────────────
+import os
+
+LOGS_DIR = BASE_DIR / 'logs'
+os.makedirs(LOGS_DIR, exist_ok=True)   # crea la carpeta si no existe
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,  # conserva los loggers internos de Django
+
+    # ── Formatos ──────────────────────────────────────────────────────────────
+    'formatters': {
+        # Formato detallado para archivos
+        'tecnico_detallado': {
+            'format': '[{asctime}] [{levelname}] [{name}] [{module}:{lineno}] {message}',
+            'style': '{',
+            'datefmt': '%Y-%m-%d %H:%M:%S',
+        },
+        # Formato corto para consola
+        'consola_simple': {
+            'format': '[{levelname}] {name}: {message}',
+            'style': '{',
+        },
+        #se agrega para logs de auditoria. #NUEVO
+        'auditoria_formato': {
+            'format': '[{asctime}] [AUDITORIA] [Usuario: {message}]',
+            'style': '{',
+            'datefmt': '%Y-%m-%d %H:%M:%S',
+        }
+    },
+
+    #filtros
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',  # solo activo con DEBUG=True
+        },
+    },
+
+    # ── Handlers 
+    'handlers': {
+        # Consola — solo en desarrollo
+        'consola': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'consola_simple',
+            'filters': ['require_debug_true'],
+        },
+        # Archivo rotativo para errores técnicos
+        'archivo_tecnico': {
+            'level': 'WARNING',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': LOGS_DIR / 'tecnico.log',
+            'maxBytes': 1024 * 1024 * 5,  # 5 MB por archivo
+            'backupCount': 5,              # conserva hasta 5 archivos históricos
+            'formatter': 'tecnico_detallado',
+            'encoding': 'utf-8',
+        },
+        # Archivo rotativo para mensajes DEBUG e INFO
+        'archivo_debug': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': LOGS_DIR / 'debug.log',
+            'maxBytes': 1024 * 1024 * 5,
+            'backupCount': 3,
+            'formatter': 'tecnico_detallado',
+            'encoding': 'utf-8',
+        },
+            # Handler específico para logs de auditoría #NUEVO
+        'archivo_auditoria': {
+            'level': 'INFO',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': LOGS_DIR / 'auditoria.log',
+            'maxBytes': 1024 * 1024 * 10,  # 10 MB por archivo
+            'backupCount': 10,             # conserva hasta 10 archivos históricos
+            'formatter': 'auditoria_formato',
+            'encoding': 'utf-8',
+        }
+    },
+
+    # ── Loggers ───────────────────────────────────────────────────────────────
+    'loggers': {
+        # Logger raíz de Django (errores internos del framework)
+        'django': {
+            'handlers': ['consola', 'archivo_tecnico'],
+            'level': 'WARNING',
+            'propagate': False,
+        },
+        # Peticiones HTTP (cada request que llega al servidor)
+        'django.request': {
+            'handlers': ['archivo_tecnico'],
+            'level': 'WARNING',  # registra 4xx y 5xx automáticamente
+            'propagate': False,
+        },
+        # Consultas a la base de datos
+        'django.db.backends': {
+            'handlers': ['archivo_debug'],
+            'level': 'DEBUG',
+            'propagate': False,
+            'filters': ['require_debug_true'],  # solo en desarrollo
+        },
+        # Logger propio de la aplicación — usado en las views
+        'back_end_django': {
+            'handlers': ['consola', 'archivo_tecnico', 'archivo_debug'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        # Logger de gestion_usuarios
+        'gestion_usuarios': {
+            'handlers': ['consola', 'archivo_tecnico', 'archivo_debug'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        # Logger de gestion_productos
+        'gestion_productos': {
+            'handlers': ['consola', 'archivo_tecnico', 'archivo_debug'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        # Logger de auditoría #NUEVO
+        'auditoria': {
+            'handlers': ['archivo_auditoria', 'consola'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+}
