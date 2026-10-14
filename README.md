@@ -1,4 +1,4 @@
-# Práctica 6 - Django y JWT Authentication
+# Práctica 7 - CORS, LOGS y TEST
 
 Proyecto backend desarrollado con **Django REST Framework** y **PostgreSQL**, utilizando contenedores de **Docker** para la base de datos y documentado con **Swagger**.
 
@@ -7,7 +7,7 @@ Proyecto backend desarrollado con **Django REST Framework** y **PostgreSQL**, ut
 ## 🚀 Tecnologías y Herramientas Utilizadas
 - **Python 3.8+ / Django 4.2**
 - **Django REST Framework (DRF)**
-- **PostgreSQL 15** (a través de Docker Compose)
+- **PostgreSQL 15** (a través de Docker Compose)python
 - **drf-yasg** (para la generación de la interfaz de Swagger)
 - **Linux Mint / Git / GitHub**
 

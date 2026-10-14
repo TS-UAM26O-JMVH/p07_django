@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware', #Esta es la linea que debemmos agregar para p07 (codigo 8)
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -209,3 +210,41 @@ SWAGGER_SETTINGS = {
         }
     },
 }
+
+#Codigo 9 p07: Configuracion de CORS
+# ─────────────────────────────────────────
+# CORS
+# ─────────────────────────────────────────
+
+# Orígenes permitidos (ajusta según tu frontend)
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",   
+    "http://localhost:4200",   
+    "http://127.0.0.1:3000",
+]
+
+# Permite enviar cookies y encabezados de autorización
+CORS_ALLOW_CREDENTIALS = True
+
+# Métodos HTTP que acepta la API desde el frontend
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
+# Encabezados que el frontend puede enviar
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",       # ← necesario para enviar el JWT
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
