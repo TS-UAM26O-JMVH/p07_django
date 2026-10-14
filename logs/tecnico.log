@@ -18,3 +18,67 @@
 [2026-10-14 09:07:08] [WARNING] [django.server] [basehttp:212] "POST /api/auth/token/ HTTP/1.1" 400 40
 [2026-10-14 14:34:43] [WARNING] [django.request] [log:246] Unauthorized: /api/logs/auditoria/
 [2026-10-14 14:34:43] [WARNING] [django.server] [basehttp:212] "GET /api/logs/auditoria/ HTTP/1.1" 401 58
+[2026-10-14 15:45:35] [WARNING] [django.request] [log:246] Unauthorized: /api/logs/auditoria/
+[2026-10-14 15:45:35] [WARNING] [django.server] [basehttp:212] "GET /api/logs/auditoria/ HTTP/1.1" 401 58
+[2026-10-14 15:48:34] [WARNING] [django.request] [log:246] Unauthorized: /api/logs/auditoria/
+[2026-10-14 15:48:35] [WARNING] [django.server] [basehttp:212] "GET /api/logs/auditoria/ HTTP/1.1" 401 183
+[2026-10-14 15:52:05] [WARNING] [django.request] [log:246] Unauthorized: /api/logs/auditoria/
+[2026-10-14 15:52:05] [WARNING] [django.server] [basehttp:212] "GET /api/logs/auditoria/ HTTP/1.1" 401 183
+[2026-10-14 16:56:18] [WARNING] [django.request] [log:246] Unauthorized: /api/auth/token/
+[2026-10-14 16:56:19] [WARNING] [django.request] [log:246] Bad Request: /api/auth/token/
+[2026-10-14 16:56:21] [WARNING] [django.request] [log:246] Unauthorized: /api/auth/token/
+[2026-10-14 16:56:24] [ERROR] [django.request] [log:246] Internal Server Error: /api/auth/logout/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/autentificacion/views.py", line 100, in post
+    token.blacklist()   # invalida el token
+    ^^^^^^^^^^^^^^^
+AttributeError: 'RefreshToken' object has no attribute 'blacklist'
+[2026-10-14 16:56:25] [WARNING] [django.request] [log:246] Unauthorized: /api/auth/logout/
+[2026-10-14 16:56:31] [WARNING] [django.request] [log:246] Forbidden: /api/logs/auditoria/
+[2026-10-14 16:56:32] [WARNING] [django.request] [log:246] Unauthorized: /api/logs/auditoria/
+[2026-10-14 16:56:32] [WARNING] [django.request] [log:246] Unauthorized: /api/auth/token/refresh/
+[2026-10-14 16:56:42] [WARNING] [django.request] [log:246] Unauthorized: /api/products/
+[2026-10-14 16:56:48] [WARNING] [django.request] [log:246] Unauthorized: /api/products/
+[2026-10-14 16:56:51] [WARNING] [django.request] [log:246] Not Found: /api/users/
+[2026-10-14 16:56:54] [WARNING] [django.request] [log:246] Not Found: /api/users/
+[2026-10-14 16:56:55] [WARNING] [django.request] [log:246] Not Found: /api/users/
+[2026-10-14 16:56:56] [WARNING] [django.request] [log:246] Not Found: /api/users/
+[2026-10-14 16:56:59] [WARNING] [django.request] [log:246] Not Found: /api/users/
+[2026-10-14 16:57:00] [WARNING] [django.request] [log:246] Not Found: /api/users/
+[2026-10-14 16:57:04] [WARNING] [django.request] [log:246] Unauthorized: /api/auth/token/
+[2026-10-14 12:52:58] [WARNING] [django.request] [log:246] Unauthorized: /api/auth/token/
+[2026-10-14 12:52:59] [WARNING] [django.request] [log:246] Bad Request: /api/auth/token/
+[2026-10-14 12:53:01] [WARNING] [django.request] [log:246] Unauthorized: /api/auth/token/
+[2026-10-14 12:53:04] [WARNING] [django.request] [log:246] Unauthorized: /api/auth/token/refresh/
+[2026-10-14 12:53:05] [WARNING] [django.request] [log:246] Unauthorized: /api/auth/logout/
+[2026-10-14 12:53:13] [WARNING] [django.request] [log:246] Forbidden: /api/logs/auditoria/
+[2026-10-14 12:53:14] [WARNING] [django.request] [log:246] Unauthorized: /api/logs/auditoria/
+[2026-10-14 12:53:15] [WARNING] [django.request] [log:246] Unauthorized: /api/auth/token/refresh/
+[2026-10-14 12:53:26] [WARNING] [django.request] [log:246] Unauthorized: /api/products/
+[2026-10-14 12:53:33] [WARNING] [django.request] [log:246] Unauthorized: /api/products/
+[2026-10-14 12:53:42] [WARNING] [django.request] [log:246] Unauthorized: /api/users/
+[2026-10-14 12:53:43] [WARNING] [django.request] [log:246] Unauthorized: /api/users/
+[2026-10-14 12:53:47] [WARNING] [django.request] [log:246] Unauthorized: /api/users/
+[2026-10-14 12:53:52] [WARNING] [django.request] [log:246] Unauthorized: /api/auth/token/
