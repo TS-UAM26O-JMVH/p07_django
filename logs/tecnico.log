@@ -1,0 +1,20 @@
+[2026-10-14 08:31:16] [WARNING] [django.request] [log:246] Unauthorized: /api/logs/auditoria/
+[2026-10-14 08:31:16] [WARNING] [django.server] [basehttp:212] "GET /api/logs/auditoria/ HTTP/1.1" 401 58
+[2026-10-14 08:39:00] [WARNING] [django.request] [log:246] Unauthorized: /api/products/
+[2026-10-14 08:39:00] [WARNING] [django.server] [basehttp:212] "GET /api/products/ HTTP/1.1" 401 58
+[2026-10-14 08:44:16] [WARNING] [django.request] [log:246] Unauthorized: /api/logs/auditoria/
+[2026-10-14 08:44:16] [WARNING] [django.server] [basehttp:212] "GET /api/logs/auditoria/ HTTP/1.1" 401 183
+[2026-10-14 08:45:03] [WARNING] [django.request] [log:246] Unauthorized: /api/logs/tecnico/
+[2026-10-14 08:45:03] [WARNING] [django.server] [basehttp:212] "GET /api/logs/tecnico/ HTTP/1.1" 401 183
+[2026-10-14 08:49:13] [WARNING] [django.request] [log:246] Unauthorized: /api/auth/token/
+[2026-10-14 08:49:13] [WARNING] [django.server] [basehttp:212] "POST /api/auth/token/ HTTP/1.1" 401 68
+[2026-10-14 08:50:25] [WARNING] [django.request] [log:246] Unauthorized: /api/auth/token/
+[2026-10-14 08:50:25] [WARNING] [django.server] [basehttp:212] "POST /api/auth/token/ HTTP/1.1" 401 68
+[2026-10-14 09:02:18] [WARNING] [django.request] [log:246] Unauthorized: /api/logs/tecnico/
+[2026-10-14 09:02:18] [WARNING] [django.server] [basehttp:212] "GET /api/logs/tecnico/ HTTP/1.1" 401 183
+[2026-10-14 09:03:35] [WARNING] [django.request] [log:246] Unauthorized: /api/logs/tecnico/
+[2026-10-14 09:03:35] [WARNING] [django.server] [basehttp:212] "GET /api/logs/tecnico/ HTTP/1.1" 401 183
+[2026-10-14 09:07:08] [WARNING] [django.request] [log:246] Bad Request: /api/auth/token/
+[2026-10-14 09:07:08] [WARNING] [django.server] [basehttp:212] "POST /api/auth/token/ HTTP/1.1" 400 40
+[2026-10-14 14:34:43] [WARNING] [django.request] [log:246] Unauthorized: /api/logs/auditoria/
+[2026-10-14 14:34:43] [WARNING] [django.server] [basehttp:212] "GET /api/logs/auditoria/ HTTP/1.1" 401 58

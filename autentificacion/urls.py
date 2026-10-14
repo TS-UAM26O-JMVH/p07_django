@@ -11,7 +11,7 @@ from autentificacion.views import (
     LogoutView,
 )
 from autentificacion.views import CustomTokenObtainPairSerializer
-from autentificacion.log_views import LogAuditoriaView, LogTecnicoView
+from autentificacion.logs_views import LogAuditoriaView, LogTecnicoView
 
 #codigo 15 p07: nuevas rutas
 urlpatterns = [

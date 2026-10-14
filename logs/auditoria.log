@@ -1,0 +1,4 @@
+[2026-10-14 08:49:13] [AUDITORIA] [Usuario: ip:172.19.0.1] [accion:LOGIN_FALLIDO] [usuario:Admin] [detalle:credenciales incorrectas]]
+[2026-10-14 08:50:25] [AUDITORIA] [Usuario: ip:172.19.0.1] [accion:LOGIN_FALLIDO] [usuario:Admin] [detalle:credenciales incorrectas]]
+[2026-10-14 08:58:45] [AUDITORIA] [Usuario: ip:172.19.0.1] [accion:LOGIN_EXITOSO] [usuario:Admin] [id:1]]
+[2026-10-14 09:07:33] [AUDITORIA] [Usuario: ip:172.19.0.1] [accion:LOGIN_EXITOSO] [usuario:Admin] [id:1]]

@@ -10,7 +10,7 @@ from rest_framework.exceptions import ValidationError
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 
-from .productoDAO import ProductoDAO
+from gestion_productos.DAO.productoDAO import ProductoDAO
 from .serializers import ProductoCompletoSerializer, ProductoParcialSerializer
 from gestion_productos.serializers import ProductoCompletoSerializer, ProductoParcialSerializer
 from gestion_productos.exceptions.productoExceptions import (

@@ -16,7 +16,7 @@ from gestion_usuarios.serializers import (
     PasswordResetRequestSerializer,
 )
 
-from gestion_usuarios.Exceptions.usuarioExeptions import (
+from gestion_usuarios.exceptions.usuarioExeptions import (
     DatosInvalidos_400,
     UsuarioNoEncontrado_404,
     ConflictoUsuario_409,
